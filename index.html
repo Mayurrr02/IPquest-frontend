@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPQuest - Reference Hub</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: #f4f6f9;
+        color: #333;
+    }
+
+    /* Header */
+    header {
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        color: white;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 400;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        opacity: 0.7;
+    }
+
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        color: #1e3c72;
+    }
+
+    .hero p {
+        color: #666;
+    }
+
+    /* Reference Cards */
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        padding-bottom: 50px;
+    }
+
+    .card {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card h3 {
+        color: #2a5298;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .card a {
+        text-decoration: none;
+        background: #1e3c72;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .card a:hover {
+        background: #2a5298;
+    }
+
+    /* Footer */
+    footer {
+        background: #1e3c72;
+        color: white;
+        text-align: center;
+        padding: 15px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>IPQuest</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Games</a>
+        <a href="#">Leaderboard</a>
+        <a href="#">Reference Hub</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>IPR Reference Hub</h2>
+    <p>Explore trusted resources, legal documents, and official IPR information.</p>
+</section>
+
+<section class="container" id="referenceContainer">
+    <!-- Dynamic cards will load here -->
+</section>
+
+<footer>
+    © 2026 IPQuest - Empowering IPR Awareness Through Gamification
+</footer>
+
+<script>
+async function loadReferences() {
+    try {
+        const response = await fetch("https://ipquest.onrender.com/api/references");
+        const data = await response.json();
+
+        const container = document.getElementById("referenceContainer");
+
+        container.innerHTML = data.map(ref => `
+            <div class="card">
+                <h3>${ref.title}</h3>
+                <p>${ref.description}</p>
+                <p><strong>Category:</strong> ${ref.category}</p>
+                <a href="${ref.link}" target="_blank">Visit Resource</a>
+            </div>
+        `).join("");
+
+    } catch (error) {
+        console.error("Error loading references:", error);
+    }
+}
+
+loadReferences();
+
+</script>
+
+</body>
+</html>
