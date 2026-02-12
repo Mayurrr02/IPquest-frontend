@@ -1,0 +1,220 @@
+/* --- GLOBAL THEME --- */
+:root {
+  --primary-blue: #1e3a8a; /* The Dark Blue from your image */
+  --bg-gray: #f3f4f6;      /* The Light Gray background */
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: var(--bg-gray);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- NAVBAR STYLES --- */
+.navbar {
+  background-color: var(--primary-blue);
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-logo {
+  color: var(--white);
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  color: #e0e7ff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: var(--white);
+}
+
+/* --- MAIN LAYOUT --- */
+.app-content {
+  flex: 1; /* Pushes footer to bottom */
+  padding-bottom: 40px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* --- HEADERS --- */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+h1 {
+  color: var(--primary-blue);
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+header p {
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+/* --- FOOTER STYLES --- */
+.footer {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+  font-size: 14px;
+}
+
+/* --- BUTTONS & CONTROLS --- */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.toggle-btn {
+  padding: 10px 20px;
+  border-radius: 6px; /* Squarer corners like the image */
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Primary Button (Dark Blue) */
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+.btn-primary:hover { background-color: #172554; }
+
+/* Reset Button (Red Outline) */
+.btn-reset {
+  background-color: transparent;
+  color: #ef4444;
+  border: 2px solid #ef4444;
+}
+.btn-reset:hover { background-color: #ef4444; color: white; }
+
+/* Search & Select Controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+input, select {
+  padding: 10px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background: var(--white);
+}
+
+.search-bar { width: 250px; }
+
+/* --- CARD GRID --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--white);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #ccc; /* Default border */
+  transition: transform 0.2s;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+/* Card Colors */
+.card.Patent { border-top-color: #3b82f6; }
+.card.Copyright { border-top-color: #ef4444; }
+.card.Trademark { border-top-color: #eab308; }
+.card.TradeSecret { border-top-color: #10b981; } /* Green for Trade Secret */
+
+.card h3 {
+  color: var(--primary-blue);
+  margin: 15px 0 10px 0;
+}
+
+.badge {
+  background: #eff6ff;
+  color: var(--primary-blue);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* --- ADD FACT FORM PAGE --- */
+.form-wrapper {
+  background: var(--white);
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.submit-btn {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+.submit-btn:hover { background-color: #172554; }
+
+textarea { width: 100%; min-height: 100px; }
+.form-row { display: flex; gap: 15px; margin-top: 15px;}
+.form-row > * { flex: 1; }
