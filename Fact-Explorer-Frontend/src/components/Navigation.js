@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+// Change "Navbar" to "Navigation"
+const Navigation = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        {/* Logo / Brand Name */}
         <Link to="/" className="nav-logo">IPQuest</Link>
-
-        {/* Navigation Links */}
         <ul className="nav-menu">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/">Games</Link></li>
@@ -20,4 +18,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navigation; // Export the new name
